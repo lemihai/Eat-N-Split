@@ -1,36 +1,61 @@
+const friends = [
+  {
+    id: 1,
+    name: "Clark",
+    balance: "You owe $10",
+    picture: "https://via.placeholder.com/100",
+  },
+  {
+    id: 2,
+    name: "Bruce",
+    balance: "Bruce owes you $20",
+    picture: "https://via.placeholder.com/100",
+  },
+  {
+    id: 3,
+    name: "Diana",
+    balance: "You and Diana are even",
+    picture: "https://via.placeholder.com/100",
+  },
+];
+
 export default function App() {
   return (
     <div className="App">
       <FriendList />
-      hi
     </div>
   );
 }
 
 function FriendList() {
+  const friendsLs = friends.map((friend) => (
+    <Friend
+      key={friend.id}
+      name={friend.name}
+      balance={friend.balance}
+      pic={friend.pic}
+    />
+  ));
+
   return (
     <div className="friend-list">
-      <Friend />
+      {friendsLs}
       <AddFriend />
     </div>
   );
 }
-function Friend() {
+function Friend({ name, balance, pic }) {
   return (
     <div className="friend-wrap">
-      <img
-        className="friend-avatar"
-        src="https://via.placeholder.com/100"
-        alt="friend"
-      />
-      <h1 className="friend-title">Friend Name</h1>
-      <p className="friend-bill-split">bill details</p>
-      <button className="friend-select">select</button>
+      <img className="friend-avatar" src={pic} alt="friend" />
+      <h1 className="friend-title">{name}</h1>
+      <p className="friend-details">{balance}</p>
+      <button className="friend-select">Select</button>
     </div>
   );
 }
 function AddFriend() {
-  return <form className="add-friend-form">add friend</form>;
+  return <form className="add-friend-form"></form>;
 }
 function Split() {
   return <form>? split</form>;
