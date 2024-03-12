@@ -1,21 +1,23 @@
+import pic from "./person.jpg";
+
 const friends = [
   {
     id: 1,
     name: "Clark",
     balance: "You owe $10",
-    picture: "https://via.placeholder.com/100",
+    picture: pic,
   },
   {
     id: 2,
     name: "Bruce",
     balance: "Bruce owes you $20",
-    picture: "https://via.placeholder.com/100",
+    picture: pic,
   },
   {
     id: 3,
     name: "Diana",
     balance: "You and Diana are even",
-    picture: "https://via.placeholder.com/100",
+    picture: pic,
   },
 ];
 
