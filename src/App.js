@@ -4,19 +4,19 @@ const friends = [
   {
     id: 1,
     name: "Clark",
-    balance: "You owe $10",
+    balance: 10,
     picture: pic,
   },
   {
     id: 2,
     name: "Bruce",
-    balance: "Bruce owes you $20",
+    balance: -20,
     picture: pic,
   },
   {
     id: 3,
     name: "Diana",
-    balance: "You and Diana are even",
+    balance: 0,
     picture: pic,
   },
 ];
@@ -49,11 +49,27 @@ function FriendList() {
 }
 
 function Friend({ name, balance, pic }) {
+  let balanceShow = "1";
+
+  if (balance > 0) {
+    balanceShow = `You owe ${name} ${balance}`;
+  } else if (balance < 0) {
+    balanceShow = `Owes you ${name} ${balance}`;
+  } else if (balance === 0) {
+    balanceShow = `You and ${name} are even`;
+  }
+
   return (
     <div className="friend-wrap">
       <img className="friend-avatar" src={pic} alt="friend" />
       <h1 className="friend-title">{name}</h1>
-      <p className="friend-details">{balance}</p>
+      <p
+        className={`friend-details 
+        ${balance < 0 ? `red` : ""} 
+        ${balance > 0 ? `green` : ""}`}
+      >
+        {balanceShow}
+      </p>
       <button className="friend-select">Select</button>
     </div>
   );
@@ -63,10 +79,22 @@ function AddFriend() {
   return (
     <form className="add-friend-form">
       <label className="form-label">Friend name</label>
-      <input className="form-input" type="text" placeholder="Name" />
+      <input
+        className="form-input"
+        type="text"
+        name="friendName"
+        placeholder="Name"
+      />
       <label className="form-label">Image URL</label>
-      <input className="form-input" type="text" placeholder="Balance" />
-      <button className="form-add">Add</button>
+      <input
+        className="form-input"
+        type="text"
+        name="imageUrl"
+        placeholder="Image URL"
+      />
+      <button className="form-add" type="submit">
+        Add
+      </button>
     </form>
   );
 }
@@ -80,7 +108,7 @@ function Split() {
       <label className="split-bill-label">Your expense</label>
       <input className="wplit-bill-input" type="text" />
       <label className="split-bill-label">ben's expense</label>
-      <input className="wplit-bill-input" type="text" />
+      <p className="wplit-bill-input noinput" type="text" />
       <label className="split-bill-label">Who is paying the bill</label>
       <select>
         <option>Ben</option>
