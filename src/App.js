@@ -1,4 +1,7 @@
 import pic from "./person.jpg";
+import { useState } from "react";
+import "./index.css";
+let nextId = 0;
 
 const friends = [
   {
@@ -103,16 +106,24 @@ function Split() {
   return (
     <form className="split-bill-wrap">
       <h1 className="split-bill-title">Split a bill with Ben</h1>
-      <label className="split-bill-label">Bill value</label>
+      <label className="split-bill-label">
+        <span className="emoji">💰</span> Bill value
+      </label>
       <input className="wplit-bill-input" type="text" />
-      <label className="split-bill-label">Your expense</label>
+      <label className="split-bill-label">
+        <span className="emoji">🧍‍♀️</span> Your expense
+      </label>
       <input className="wplit-bill-input" type="text" />
-      <label className="split-bill-label">ben's expense</label>
+      <label className="split-bill-label">
+        <span className="emoji">👬</span> ben's expense
+      </label>
       <p className="wplit-bill-input noinput" type="text" />
-      <label className="split-bill-label">Who is paying the bill</label>
-      <select>
-        <option>Ben</option>
-        <option>You</option>
+      <label className="split-bill-label">
+        <span className="emoji">💸</span> Who is paying the bill
+      </label>
+      <select className="split-select">
+        <option className="split-select-option">Ben</option>
+        <option className="split-select-option">You</option>
       </select>
       <button className="split-bill-button">Split Bill</button>
     </form>

@@ -29,7 +29,7 @@ code {
   margin-top: 25vh;
   height: 50vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 4rem;
 }
@@ -37,6 +37,8 @@ code {
 /* Friend Card */
 
 .friend-list {
+  display: flex;
+  flex-direction: column;
 }
 
 .friend-wrap {
@@ -87,7 +89,10 @@ code {
   grid-template-columns: 0.6fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1.6rem;
+  margin-top: 8rem;
   padding: 1.6rem;
+  background-color: #ffedd1;
+  border-radius: 0.8rem;
 }
 
 .form-label {
@@ -98,7 +103,7 @@ code {
 .form-input {
   font-size: 1.6rem;
   padding: 1rem;
-  border: 1px solid #242424;
+  border: 1px solid #ffd8b4;
   border-radius: 0.4rem;
   height: 4rem;
 }
@@ -118,10 +123,14 @@ code {
 
 .split-bill-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 16rem;
   grid-template-rows: 2fr 1fr 1fr 1fr 1fr 2fr;
   gap: 1.6rem;
-  padding: 1.6rem;
+  column-gap: 4.6rem;
+  padding: 2.6rem 4.6rem 2.6rem 4.6rem;
+  background-color: #ffedd1;
+  border-radius: 0.8rem;
+
   /* height: 100%; */
 }
 
@@ -132,9 +141,12 @@ code {
 }
 
 .split-bill-label {
+  display: flex;
+
   font-size: 2rem;
   height: 4rem;
   align-items: center;
+  font-weight: 500;
 }
 
 .red {
@@ -149,26 +161,38 @@ code {
   font-size: 1.6rem;
   padding: 1rem;
   height: 4rem;
-  border: 1px solid #242424;
+  width: 16rem;
+  border: 1px solid #ffd8b4;
   border-radius: 0.4rem;
   align-items: center;
 }
 
 .noinput {
-  background-color: #24242420;
-  border: 1px solid #24242450;
+  background-color: #24242410;
+  border: 1px solid #ffd8b4;
 }
 
 .split-bill-button {
   grid-column: 2;
-  justify-self: center;
+  justify-self: start;
   align-self: center;
   border: none;
   border-radius: 0.8rem;
   padding: 1.2rem;
   font-size: 1.6rem;
-  width: 100%;
+  width: 16rem;
   color: #242424;
   background-color: #ffa34d;
   font-weight: bold;
+}
+
+.split-select {
+  border: 1px solid #ffd8b4;
+  color: #242424;
+  width: 16rem;
+}
+
+.emoji {
+  display: flex;
+  width: 3.6rem;
 }
